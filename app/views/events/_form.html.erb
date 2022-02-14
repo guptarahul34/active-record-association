@@ -1,0 +1,42 @@
+<%= form_with(model: event) do |form| %>
+  <% if event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+        <% event.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group col-lg-3">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id, class:"form-control", :readonly => true %>
+  </div>
+
+  <div class="field form-group col-lg-3">
+    <%= form.label :name %>
+    <%= form.text_field :name, class:"form-control" %>
+  </div>
+
+  <div class="field form-group col-lg-3">
+    <%= form.label :description %>
+    <%= form.text_field :description, class:"form-control" %>
+  </div>
+
+  <div class="field form-group col-lg-3 ">
+    <%= form.label :event_date %>
+    <%= form.date_select :event_date,{}, class:"form-control mt-2" %>
+  </div>
+
+   <div class="field form-group col-lg-3 ">
+    <%= form.label :category %>
+    <%= form.select :category,@category, {}, class:"form-control mt-2" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Add Event", class:"btn btn-success" %>
+  </div>
+<% end %>

@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row  mt-4">
+      <div class="col-lg-2">
+              <p> <strong>Name:</strong> </p>
+      </div>
+       <div class="col-lg-2">
+                <%= @event.name %>
+      </div>
+</div>
+
+<div class="row  mt-2">
+      <div class="col-lg-2">
+              <p> <strong>Description:</strong> </p>
+      </div>
+       <div class="col-lg-2">
+                <%= @event.description %>
+      </div>
+</div>
+
+<div class="row  mt-2">
+      <div class="col-lg-2">
+              <p> <strong>Category:</strong> </p>
+      </div>
+       <div class="col-lg-2">
+                <%= @event.category %>
+      </div>
+</div>
+
+<div class="row  mt-2">
+      <div class="col-lg-2">
+              <p> <strong>Event date:</strong> </p>
+      </div>
+       <div class="col-lg-2">
+                <%= @event.event_date %>
+      </div>
+</div>
+
+
+
+<%= link_to 'Back', events_path, class:"btn btn-success", :style => "color:white" %>

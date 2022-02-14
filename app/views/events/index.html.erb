@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Events</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Event date</th>
+      <th>Show</th>
+      <th>Edit</th>
+      <th>Delete</th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @events.each do |event| %>
+      <tr>
+        <td><%= event.id %></td>
+        <td><%= event.name %></td>
+        <td><%= event.description %></td>
+        <td><%= event.event_date %></td>
+        <td><%= link_to 'Show', event, class:"btn btn-success", :style => 'color: white;' %></td>
+        <td><%= link_to 'Edit', edit_event_path(event), class:"btn btn-info", :style => 'color: white;' %></td>
+        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' },class:"btn btn-danger", :style => 'color: white;' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

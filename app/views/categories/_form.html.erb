@@ -1,0 +1,31 @@
+<%= form_with model: category do |form| %>
+
+<div class="row">
+            <div class="col-lg-3">
+                <div class="form-group">
+                        <%= form.label :category, "Category" %>
+                        <%= form.select :category, Category.categories.keys, {}, class:"form-control" %>
+                </div>
+            </div>
+</div>
+
+<div class="row mt-3">
+            <div class="col-lg-3">
+                <div class="form-group">
+                        <%= form.label :user_id, "User" %>
+                        <%= form.text_field :user_id, class:"form-control", :readonly => true %>
+                </div>
+            </div>
+</div>
+
+<div class="row mt-3">
+            <div class="col-lg-3">
+                <div class="form-group">
+                         <%= form.submit "Add Category", class:"btn btn-success" %>
+                </div>
+            </div>
+</div>
+
+<% end %>
+
+

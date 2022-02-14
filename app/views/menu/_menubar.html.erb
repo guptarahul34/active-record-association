@@ -1,0 +1,38 @@
+
+<ul class="nav">
+  <li class="nav-item">
+  <%= link_to "Home", "/events", class:"nav-link" %>
+  </li>
+
+  <li class="nav-item">
+    <% if user_signed_in? %>
+    <%= link_to "sign out", destroy_user_session_path, method: :delete, class:"nav-link" %>
+  </li>
+  
+  <li class="nav-item">
+        <%= link_to "edit user", edit_user_registration_path, class:"nav-link" %>
+  </li>
+
+  <li class="nav-item">
+      <%= link_to 'Add New Event', new_event_path, class:"nav-link" %>
+  </li>
+
+  <li class="nav-item">
+      <%= link_to 'Add Category', new_category_path, class:"nav-link" %>
+  </li>
+
+   <li class="nav-item">
+      <%= link_to 'User Profile', "/user/profile", class:"nav-link" %>
+   </li>
+
+  <% else %>
+  <li class="nav-item">
+      <%= link_to "sign up", new_user_registration_path, class:"nav-link" %>
+  </li>
+
+  <li class="nav-item">
+        <%= link_to "sign in", new_user_session_path, class:"nav-link"  %>
+  </li>
+  <% end %>
+  
+</ul>
