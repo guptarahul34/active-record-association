@@ -8,27 +8,32 @@ class EventsController < ApplicationController
 
   # GET /events/1 or /events/1.json
   def show
+       @comments = Comment.where(event_id:params[:id])
+       name =  Event.select(:category_id).where("id=?",params[:id])
+      @category = Category.select("category").where("id=?",name[0].category_id)
+      
   end
 
   # GET /events/new
   def new
     @event = Event.new
-    @category = Category.all.map { |category| [category.category,category.category] }
     @event.user_id = current_user.id
   end
 
   # GET /events/1/edit
   def edit
-    @category = Category.all.map { |category| [category.category,category.category] }
-    @event.user_id = current_user.id
+    # @category = Category.all.map { |category| [category.category,category.category] }
+    # @event.user_id = current_user.id
   end
 
   # POST /events or /events.json
   def create
+    id =   Category.select("id").where("category=?",params[:event][:category])
     @event = Event.new(event_params)
-
+      @event.category_id = id[0].id
+    
     respond_to do |format|
-      if @event.save
+      if @event.save 
         format.html { redirect_to event_url(@event), notice: "Event was successfully created." }
         format.json { render :show, status: :created, location: @event }
       else
@@ -69,6 +74,7 @@ class EventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:name, :description, :event_date,:user_id,:category)
+      params.require(:event).permit(:name, :description, :event_date,:user_id)
+
     end
 end

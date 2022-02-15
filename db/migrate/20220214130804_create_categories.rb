@@ -1,8 +1,8 @@
 class CreateCategories < ActiveRecord::Migration[6.1]
   def change
     create_table :categories do |t|
-      t.integer :category
-      t.references :user, null: false, foreign_key: true
+      t.string :category
+      
 
       t.timestamps
     end

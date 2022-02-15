@@ -4,7 +4,7 @@
             <div class="col-lg-3">
                 <div class="form-group">
                         <%= form.label :category, "Category" %>
-                        <%= form.select :category, Category.categories.keys, {}, class:"form-control" %>
+                        <%= form.select :category, ['music','visual_art','film','fashion'], {}, class:"form-control" %>
                 </div>
             </div>
 </div>
@@ -12,8 +12,8 @@
 <div class="row mt-3">
             <div class="col-lg-3">
                 <div class="form-group">
-                        <%= form.label :user_id, "User" %>
-                        <%= form.text_field :user_id, class:"form-control", :readonly => true %>
+                        <%= form.label :event_id, "User" %>
+                        <%= form.select :event_id, @events, {} ,class:"form-control" %>
                 </div>
             </div>
 </div>

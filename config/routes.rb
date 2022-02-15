@@ -9,4 +9,9 @@ Rails.application.routes.draw do
   get "/user/profile", to: "home#user_profile"
   #============= routes for category===================
   resources :categories
+  #=============== routes for comments ================
+  resources :events do
+    resources :comments
+  end
+  # resources :comments
 end

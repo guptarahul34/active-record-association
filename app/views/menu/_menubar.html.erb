@@ -17,12 +17,26 @@
       <%= link_to 'Add New Event', new_event_path, class:"nav-link" %>
   </li>
 
-  <li class="nav-item">
-      <%= link_to 'Add Category', new_category_path, class:"nav-link" %>
-  </li>
+  
 
    <li class="nav-item">
       <%= link_to 'User Profile', "/user/profile", class:"nav-link" %>
+   </li>
+
+   <li class="nav-item">
+      <%= link_to 'Filter By Music', categories_path(category:1), class:"nav-link" %>
+   </li>
+
+   <li class="nav-item">
+      <%= link_to 'Filter By Fashion', categories_path(category:2), class:"nav-link" %>
+   </li>
+
+    <li class="nav-item">
+      <%= link_to 'Filter By Film', categories_path(category:3), class:"nav-link" %>
+   </li>
+
+   <li class="nav-item">
+      <%= link_to 'Filter By Visual Arts', categories_path(category:4), class:"nav-link" %>
    </li>
 
   <% else %>
@@ -36,3 +50,4 @@
   <% end %>
   
 </ul>
+

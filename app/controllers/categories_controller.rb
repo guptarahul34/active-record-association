@@ -1,7 +1,17 @@
 class CategoriesController < ApplicationController
+ 
+  def index
+   
+    @filter_category = Category.find(params[:category])
+   @cate_name = Category.select("category").where(id:params[:category])
+    
+    
+  end
+  
   def new
     @category = Category.new
-    @category.user_id = current_user.id
+    @events = Event.all.map { |event| [event.name,event.id] }
+    
   end
 
   def create
@@ -13,8 +23,10 @@ class CategoriesController < ApplicationController
         end
   end
 
+  
+
   private
     def category_params
-      params.require(:category).permit(:category,:user_id)
+      params.require(:category).permit(:category)
     end
 end
