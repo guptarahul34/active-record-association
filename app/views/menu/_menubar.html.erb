@@ -17,7 +17,9 @@
       <%= link_to 'Add New Event', new_event_path, class:"nav-link" %>
   </li>
 
-  
+  <li class="nav-item">
+      <%= link_to 'Add User Address', new_address_path, class:"nav-link" %>
+  </li>
 
    <li class="nav-item">
       <%= link_to 'User Profile', "/user/profile", class:"nav-link" %>
@@ -37,6 +39,10 @@
 
    <li class="nav-item">
       <%= link_to 'Filter By Visual Arts', categories_path(category:4), class:"nav-link" %>
+   </li>
+
+    <li class="nav-item">
+      <p class="nav-link text-success">Log In : <%= current_user.email %></p>
    </li>
 
   <% else %>

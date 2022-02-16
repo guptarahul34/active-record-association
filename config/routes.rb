@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   resources :events do
     resources :comments
   end
-  # resources :comments
+  #============== routes for address ==================
+  resources :addresses, only: [:new, :create]
 end
